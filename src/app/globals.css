@@ -105,10 +105,8 @@ html {
 
 @font-face {
 	font-family: 'Minecraft';
-	src: url('/fonts/minecraft.ttf') format('ttf');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
+	src: url('/fonts/MinecraftSeven.woff2') format('woff2');
+	font-weight: normal;
 }
 
 /* Анимашки для ссылок в навигации */

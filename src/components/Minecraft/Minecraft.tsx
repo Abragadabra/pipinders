@@ -5,14 +5,17 @@ import styles from "./Minecraft.module.scss";
 import { createRef, MouseEventHandler, Ref, useCallback, useEffect } from "react";
 import anime from "animejs";
 import { useMinecraftStore } from "@/app/stores/minecraft";
+import { useRouter } from "next/navigation";
 
 interface Props {}
 
 export const Minecraft: React.FC<Props> = () => {
+	const router = useRouter();
 	const minecraftStore: any = useMinecraftStore();
 
 	const overlay: Ref<HTMLDivElement> = createRef();
 	const heartContainer: Ref<HTMLDivElement> = createRef();
+	const killCumOverlay: Ref<HTMLDivElement> = createRef();
 
 	const handleClick: MouseEventHandler = useCallback(() => {
 		minecraftStore.addClicks();
@@ -28,15 +31,15 @@ export const Minecraft: React.FC<Props> = () => {
 				container.classList.add(styles["heart-container--active"]);
 			});
 
-			if(!hearts.length) {
-				const audio = new Audio('/audio/Да ты че.mp3');
+			if (!hearts.length) {
+				const audio = new Audio("/audio/Да ты че.mp3");
 				audio.play();
 
 				const overlayAnime = anime({
 					targets: overlay.current,
 					opacity: [0, 1],
 					duration: 100,
-					easing: "easeOutQuad"
+					easing: "easeOutQuad",
 				});
 
 				const heartContainerAnime = anime({
@@ -46,31 +49,42 @@ export const Minecraft: React.FC<Props> = () => {
 					keyframes: [
 						{
 							translateX: 10,
-							translateY: anime.random(0, 5)
+							translateY: anime.random(-5, 5),
 						},
 						{
 							translateX: -10,
-							translateY: anime.random(0, 5)
+							translateY: anime.random(-5, 5),
 						},
 						{
 							translateX: 25,
-							translateY: anime.random(0, 15)
+							translateY: anime.random(-15, 15),
 						},
 						{
 							translateX: -25,
-							translateY: anime.random(0, 15)
+							translateY: anime.random(-15, 15),
 						},
 						{
 							translateX: 0,
-							translateY: 0
+							translateY: 0,
 						},
 					],
-					loop: true
+					loop: true,
 				});
 
-				audio.addEventListener('ended', () => {
-					anime.remove([overlayAnime, heartContainerAnime]);
-					location.reload();
+				audio.addEventListener("ended", () => {
+					console.log("audio ended");
+
+					anime.remove([overlay.current, heartContainers[0], heartContainers[1]]);
+
+					overlay.current?.classList.remove(styles["overlay--active"]);
+					heartContainers.forEach((container) => {
+						container.classList.remove(styles["heart-container--active"]);
+					});
+
+					setTimeout(() => {
+						new Audio("/audio/minecraft-death.mp3").play();
+					}, 500);
+					killCumOverlay.current?.classList.add(styles["kill-cum__overlay--active"]);
 				});
 			}
 
@@ -135,15 +149,17 @@ export const Minecraft: React.FC<Props> = () => {
 
 	return (
 		<>
-			<div className={styles["kill-cum"]}>
-				<h2 className={styles["kill-cum__title"]}>Pipinders помер от гриферства</h2>
-				<div className={styles["kill-cum__button-container"]}>
-					<button className={styles["kill-cum__button"]}>
-						<Image src="/img/minecraft/restart-button.png" alt="" width={400} height={70} />
-					</button>
-					<button className={styles["kill-cum__button"]}>
-						<Image src="/img/minecraft/menu-button.png" alt="" width={400} height={70} />
-					</button>
+			<div className={styles["kill-cum__overlay"]} ref={killCumOverlay}>
+				<div className={styles["kill-cum"]}>
+					<h2 className={styles["kill-cum__title"]}>Pipinders помер от гриферства</h2>
+					<div className={styles["kill-cum__button-container"]}>
+						<button className={styles["kill-cum__button"]} onClick={() => location.reload()}>
+							<Image src="/img/minecraft/restart-button.png" alt="" width={400} height={70} />
+						</button>
+						<button className={styles["kill-cum__button"]} onClick={() => router.push("/")}>
+							<Image src="/img/minecraft/menu-button.png" alt="" width={400} height={70} />
+						</button>
+					</div>
 				</div>
 			</div>
 			<div className={styles["overlay"]} ref={overlay}></div>
