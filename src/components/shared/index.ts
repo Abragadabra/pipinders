@@ -5,5 +5,4 @@ export { History } from './history'
 export { HowToPlay } from './howToPlay'
 export { Rules } from './rules'
 export { ScrollButton } from './scrollButton'
-export { About } from "./about";
 export { Test } from "./test/test";

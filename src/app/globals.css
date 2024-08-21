@@ -103,6 +103,10 @@ html {
 	color: white;
 }
 
+.sword-cursor {
+	cursor: url("/icons/sword.svg") -32px, auto;
+}
+
 /* Анимашки для ссылок в навигации */
 .std-link {
 	position: relative;

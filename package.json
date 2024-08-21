@@ -22,7 +22,8 @@
     "sass": "^1.77.8",
     "sass-loader": "^16.0.1",
     "tailwind-merge": "^2.4.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "@types/animejs": "^3.1.12",
