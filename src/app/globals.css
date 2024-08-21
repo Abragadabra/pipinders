@@ -103,8 +103,12 @@ html {
 	color: white;
 }
 
-.sword-cursor {
-	cursor: url("/icons/sword.svg") -32px, auto;
+@font-face {
+	font-family: 'Minecraft';
+	src: url('/fonts/minecraft.ttf') format('ttf');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 
 /* Анимашки для ссылок в навигации */

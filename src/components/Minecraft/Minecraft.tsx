@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styles from "./Minecraft.module.scss";
-import { createRef, MouseEventHandler, Ref, useCallback, useEffect, useState } from "react";
+import { createRef, MouseEventHandler, Ref, useCallback, useEffect } from "react";
 import anime from "animejs";
 import { useMinecraftStore } from "@/app/stores/minecraft";
 
@@ -135,6 +135,17 @@ export const Minecraft: React.FC<Props> = () => {
 
 	return (
 		<>
+			<div className={styles["kill-cum"]}>
+				<h2 className={styles["kill-cum__title"]}>Pipinders помер от гриферства</h2>
+				<div className={styles["kill-cum__button-container"]}>
+					<button className={styles["kill-cum__button"]}>
+						<Image src="/img/minecraft/restart-button.png" alt="" width={400} height={70} />
+					</button>
+					<button className={styles["kill-cum__button"]}>
+						<Image src="/img/minecraft/menu-button.png" alt="" width={400} height={70} />
+					</button>
+				</div>
+			</div>
 			<div className={styles["overlay"]} ref={overlay}></div>
 			<div className={styles["heart-container"]} ref={heartContainer}>
 				<Image

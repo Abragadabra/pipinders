@@ -19,7 +19,11 @@ export const Rules: React.FC<Props> = ({ className }) => {
 				</div>
 				<div>
 					<ul className="lg:px-20 px-10 list-decimal text-white font-semibold mt-5 text-3xl">
-						<li className="mb-5 text-left leading-10 sword-cursor" onClick={minecraftStore.handlerClick}>
+						<li
+							className="mb-5 text-left leading-10 sword-cursor"
+							style={{ cursor: 'url("/icons/sword.svg") 25 10, auto' }}
+							onClick={minecraftStore.handlerClick}
+						>
 							Не гриферить.
 						</li>
 						<li className="mb-5 text-left leading-10">Не убивать кого-либо для какой-то выгоды.</li>
