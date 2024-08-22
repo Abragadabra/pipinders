@@ -61,9 +61,9 @@ export const History: React.FC<Props> = ({ className }) => {
 						alt='MIKKUT и столб грязи'
 						height={h1.height}
 						width={h1.width}
-						sizes='85vw'
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -85,11 +85,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h2}
 						alt='Дома с высоты птичьего полёта (в майнкрафте ведь нет птичек, которые так высоко летают?)'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h2.height}
+						width={h2.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -107,11 +107,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h3}
 						alt='Территория игроков MIKKUT и Armoryx'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h3.height}
+						width={h3.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -131,11 +131,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h4}
 						alt='Территория игроков Konstantin_mogg и Nurkaev'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h4.height}
+						width={h4.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -155,11 +155,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h5}
 						alt='Территория игрока MrAbragadabra'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h5.height}
+						width={h5.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -179,11 +179,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h6}
 						alt='Территория игрока Steiden'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h6.height}
+						width={h6.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -202,11 +202,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h7}
 						alt='Территория игрока SharkPop'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h7.height}
+						width={h7.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -274,11 +274,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h8}
 						alt='Ферма кур Armoryx'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h8.height}
+						width={h8.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -293,11 +293,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h9}
 						alt='Если ты это читаешь, я люблю тебя :з'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h9.height}
+						width={h9.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -312,11 +312,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h10}
 						alt='Без комментариев…'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h10.height}
+						width={h10.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -331,11 +331,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h11}
 						alt='Легендарные путешествия'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h11.height}
+						width={h11.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -350,11 +350,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h12}
 						alt='«-5 фпс, спасибо за эти фермы»'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h12.height}
+						width={h12.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -369,11 +369,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h13}
 						alt='Иногда так хочется просто сесть и сидеть у костра, не думая ни о чём…'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h13.height}
+						width={h13.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -389,11 +389,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h14}
 						alt='Ферма мобов (НАСТОЛЬКО КРИВОЙ МИР ЕЩЁ НЕ ВИДЕЛ)'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h14.height}
+						width={h14.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -408,11 +408,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h15}
 						alt='Если ваша вечеринка не похожа на эту, даже не зовите меня'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h15.height}
+						width={h15.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -427,11 +427,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h16}
 						alt='Ещё один приятный вайбик на фото :з'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h16.height}
+						width={h16.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -446,11 +446,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h17}
 						alt='От этого фото отходит атмосфера горящего пк'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h17.height}
+						width={h17.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -465,11 +465,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h18}
 						alt='Ферма опыта на эндерменах (с кучей жемчуга)'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h18.height}
+						width={h18.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
@@ -484,11 +484,11 @@ export const History: React.FC<Props> = ({ className }) => {
 						className='m-auto'
 						src={h19}
 						alt='Игорь. Просто Игорь…'
-						height={h1.height}
-						width={h1.width}
-						sizes='85vw'
+						height={h19.height}
+						width={h19.width}
+						sizes='100vw'
 						style={{
-							width: '85%',
+							width: '100%',
 							height: 'auto',
 						}}
 						quality={90}
