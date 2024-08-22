@@ -1,51 +1,59 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import styles from "./Minecraft.module.scss";
-import { createRef, MouseEventHandler, Ref, useCallback, useEffect } from "react";
-import anime from "animejs";
-import { useMinecraftStore } from "@/app/stores/minecraft";
-import { useRouter } from "next/navigation";
+import { useMinecraftStore } from '@/app/stores/minecraft'
+import anime from 'animejs'
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import {
+	createRef,
+	MouseEventHandler,
+	Ref,
+	useCallback,
+	useEffect,
+} from 'react'
+import styles from './Minecraft.module.scss'
 
 interface Props {}
 
 export const Minecraft: React.FC<Props> = () => {
-	const router = useRouter();
-	const minecraftStore: any = useMinecraftStore();
+	const router = useRouter()
+	const minecraftStore: any = useMinecraftStore()
 
-	const overlay: Ref<HTMLDivElement> = createRef();
-	const heartContainer: Ref<HTMLDivElement> = createRef();
-	const killCumOverlay: Ref<HTMLDivElement> = createRef();
+	const overlay: Ref<HTMLDivElement> = createRef()
+	const heartContainer: Ref<HTMLDivElement> = createRef()
+	const killCumOverlay: Ref<HTMLDivElement> = createRef()
 
 	const handleClick: MouseEventHandler = useCallback(() => {
-		minecraftStore.addClicks();
-	}, []);
+		minecraftStore.addClicks()
+	}, [])
 
 	useEffect(() => {
 		if (minecraftStore.clicks > 10) {
-			const heartContainers = document.querySelectorAll(`.${styles["heart-container"]}`);
-			const hearts = heartContainers[1].querySelectorAll(`.${styles["heart"]}`);
+			const heartContainers = document.querySelectorAll(
+				`.${styles['heart-container']}`
+			)
+			const hearts = heartContainers[1].querySelectorAll(`.${styles['heart']}`)
 
-			overlay.current?.classList.add(styles["overlay--active"]);
-			heartContainers.forEach((container) => {
-				container.classList.add(styles["heart-container--active"]);
-			});
+			overlay.current?.classList.add(styles['overlay--active'])
+			heartContainers.forEach(container => {
+				container.classList.add(styles['heart-container--active'])
+			})
 
 			if (!hearts.length) {
-				const audio = new Audio("/audio/Да ты че.mp3");
-				audio.play();
+				const audio = new Audio('/audio/Да ты че.mp3')
+				audio.play()
 
 				const overlayAnime = anime({
 					targets: overlay.current,
 					opacity: [0, 1],
 					duration: 100,
-					easing: "easeOutQuad",
-				});
+					easing: 'easeOutQuad',
+				})
 
 				const heartContainerAnime = anime({
 					targets: heartContainers,
 					duration: 100,
-					easing: "easeInOutQuad",
+					easing: 'easeInOutQuad',
 					keyframes: [
 						{
 							translateX: 10,
@@ -69,23 +77,29 @@ export const Minecraft: React.FC<Props> = () => {
 						},
 					],
 					loop: true,
-				});
+				})
 
-				audio.addEventListener("ended", () => {
-					console.log("audio ended");
+				audio.addEventListener('ended', () => {
+					console.log('audio ended')
 
-					anime.remove([overlay.current, heartContainers[0], heartContainers[1]]);
+					anime.remove([
+						overlay.current,
+						heartContainers[0],
+						heartContainers[1],
+					])
 
-					overlay.current?.classList.remove(styles["overlay--active"]);
-					heartContainers.forEach((container) => {
-						container.classList.remove(styles["heart-container--active"]);
-					});
+					overlay.current?.classList.remove(styles['overlay--active'])
+					heartContainers.forEach(container => {
+						container.classList.remove(styles['heart-container--active'])
+					})
 
 					setTimeout(() => {
-						new Audio("/audio/minecraft-death.mp3").play();
-					}, 500);
-					killCumOverlay.current?.classList.add(styles["kill-cum__overlay--active"]);
-				});
+						new Audio('/audio/minecraft-death.mp3').play()
+					}, 500)
+					killCumOverlay.current?.classList.add(
+						styles['kill-cum__overlay--active']
+					)
+				})
 			}
 
 			if (hearts.length) {
@@ -93,29 +107,29 @@ export const Minecraft: React.FC<Props> = () => {
 					targets: overlay.current,
 					opacity: [0, 1],
 					duration: 100,
-					easing: "easeOutQuad",
+					easing: 'easeOutQuad',
 					complete: () => {
-						overlay.current?.classList.remove(styles["overlay--active"]);
+						overlay.current?.classList.remove(styles['overlay--active'])
 					},
-				});
+				})
 
 				if (hearts.length) {
 					anime({
 						targets: hearts[hearts.length - 1],
 						duration: 300,
-						easing: "easeInOutQuad",
+						easing: 'easeInOutQuad',
 						scale: [1, 0],
 						opacity: [1, 0],
 						complete: () => {
-							hearts[hearts.length - 1].remove();
+							hearts[hearts.length - 1].remove()
 						},
-					});
+					})
 				}
 
 				anime({
 					targets: heartContainers,
 					duration: 300,
-					easing: "easeInOutQuad",
+					easing: 'easeInOutQuad',
 					keyframes: [
 						{
 							translateX: 10,
@@ -134,79 +148,127 @@ export const Minecraft: React.FC<Props> = () => {
 						},
 					],
 					complete: () => {
-						heartContainers.forEach((container) => {
-							container.classList.remove(styles["heart-container--active"]);
-						});
+						heartContainers.forEach(container => {
+							container.classList.remove(styles['heart-container--active'])
+						})
 					},
-				});
+				})
 			}
 		}
-	}, [minecraftStore.clicks]);
+	}, [minecraftStore.clicks])
 
 	useEffect(() => {
-		minecraftStore.setHandlerClick(handleClick);
-	}, [handleClick]);
+		minecraftStore.setHandlerClick(handleClick)
+	}, [handleClick])
 
 	return (
 		<>
-			<div className={styles["kill-cum__overlay"]} ref={killCumOverlay}>
-				<div className={styles["kill-cum"]}>
-					<h2 className={styles["kill-cum__title"]}>Pipinders помер от гриферства</h2>
-					<div className={styles["kill-cum__button-container"]}>
-						<button className={styles["kill-cum__button"]} onClick={() => location.reload()}>
-							<Image src="/img/minecraft/restart-button.png" alt="" width={400} height={70} />
+			<div className={styles['kill-cum__overlay']} ref={killCumOverlay}>
+				<div className={styles['kill-cum']}>
+					<h2 className={styles['kill-cum__title']}>
+						Pipinders помер от гриферства
+					</h2>
+					<div className={styles['kill-cum__button-container']}>
+						<button
+							className={styles['kill-cum__button']}
+							onClick={() => location.reload()}
+						>
+							<Image
+								src='/img/minecraft/restart-button.png'
+								alt=''
+								width={400}
+								height={70}
+							/>
 						</button>
-						<button className={styles["kill-cum__button"]} onClick={() => router.push("/")}>
-							<Image src="/img/minecraft/menu-button.png" alt="" width={400} height={70} />
+						<button
+							className={styles['kill-cum__button']}
+							onClick={() => router.push('/')}
+						>
+							<Image
+								src='/img/minecraft/menu-button.png'
+								alt=''
+								width={400}
+								height={70}
+							/>
 						</button>
 					</div>
 				</div>
 			</div>
-			<div className={styles["overlay"]} ref={overlay}></div>
-			<div className={styles["heart-container"]} ref={heartContainer}>
+			<div className={styles['overlay']} ref={overlay}></div>
+			<div className={styles['heart-container']} ref={heartContainer}>
 				<Image
-					src="/icons/empty-heart.svg"
-					alt=""
+					src='/icons/empty-heart.svg'
+					alt=''
 					width={50}
 					height={50}
-					className={styles["heart"]}
+					className={styles['heart']}
 				/>
 				<Image
-					src="/icons/empty-heart.svg"
-					alt=""
+					src='/icons/empty-heart.svg'
+					alt=''
 					width={50}
 					height={50}
-					className={styles["heart"]}
+					className={styles['heart']}
 				/>
 				<Image
-					src="/icons/empty-heart.svg"
-					alt=""
+					src='/icons/empty-heart.svg'
+					alt=''
 					width={50}
 					height={50}
-					className={styles["heart"]}
+					className={styles['heart']}
 				/>
 				<Image
-					src="/icons/empty-heart.svg"
-					alt=""
+					src='/icons/empty-heart.svg'
+					alt=''
 					width={50}
 					height={50}
-					className={styles["heart"]}
+					className={styles['heart']}
 				/>
 				<Image
-					src="/icons/empty-heart.svg"
-					alt=""
+					src='/icons/empty-heart.svg'
+					alt=''
 					width={50}
 					height={50}
-					className={styles["heart"]}
+					className={styles['heart']}
 				/>
 			</div>
-			<div className={styles["heart-container"]} ref={heartContainer}>
-				<Image src="/icons/heart.svg" alt="" width={50} height={50} className={styles["heart"]} />
-				<Image src="/icons/heart.svg" alt="" width={50} height={50} className={styles["heart"]} />
-				<Image src="/icons/heart.svg" alt="" width={50} height={50} className={styles["heart"]} />
-				<Image src="/icons/heart.svg" alt="" width={50} height={50} className={styles["heart"]} />
-				<Image src="/icons/heart.svg" alt="" width={50} height={50} className={styles["heart"]} />
+			<div className={styles['heart-container']} ref={heartContainer}>
+				<Image
+					src='/icons/heart.svg'
+					alt=''
+					width={50}
+					height={50}
+					className={styles['heart']}
+				/>
+				<Image
+					src='/icons/heart.svg'
+					alt=''
+					width={50}
+					height={50}
+					className={styles['heart']}
+				/>
+				<Image
+					src='/icons/heart.svg'
+					alt=''
+					width={50}
+					height={50}
+					className={styles['heart']}
+				/>
+				<Image
+					src='/icons/heart.svg'
+					alt=''
+					width={50}
+					height={50}
+					className={styles['heart']}
+				/>
+				<Image
+					src='/icons/heart.svg'
+					alt=''
+					width={50}
+					height={50}
+					className={styles['heart']}
+				/>
 			</div>
 		</>
-	);
-};
+	)
+}

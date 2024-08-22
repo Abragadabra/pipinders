@@ -45,13 +45,13 @@
 	flex-direction: column;
 	gap: 250px;
 
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    translate: -50% 0;
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	translate: -50% 0;
 
 	&__overlay {
-        background-color: rgba(0, 0, 0, 0.8);
+		background-color: rgba(0, 0, 0, 0.8);
 
 		position: fixed;
 		top: 0;
@@ -61,32 +61,31 @@
 		height: 100dvh;
 
 		z-index: 10000;
-        visibility: hidden;
+		visibility: hidden;
 
-        &--active {
-            visibility: visible;
-        }
+		&--active {
+			visibility: visible;
+		}
 	}
 
 	&__title {
-		font-family: "Minecraft";
+		font-family: 'Minecraft';
 		font-size: 36px;
 		font-weight: 400;
-        width: max-content;
+		width: max-content;
 	}
 
 	&__button-container {
 		display: flex;
 		flex-direction: column;
-        justify-content: center;
-        align-items: center;
+		justify-content: center;
+		align-items: center;
 		gap: 15px;
 	}
 
 	&__button {
-        
-        img {
-            width: 100%;
-        }
+		img {
+			width: 100%;
+		}
 	}
 }

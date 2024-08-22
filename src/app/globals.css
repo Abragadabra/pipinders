@@ -94,8 +94,6 @@
 	background-color: #62a34b;
 }
 
-
-
 /* Form me, who don't know Tailwind :) */
 
 /* Общие стили */
@@ -117,7 +115,7 @@ html {
 	width: 100%;
 }
 .std-link::before {
-	content: "";
+	content: '';
 
 	background-color: white;
 	border-radius: 10px;
@@ -129,11 +127,11 @@ html {
 	width: 0;
 	height: 2px;
 
-	-webkit-transition-duration: .3s;
+	-webkit-transition-duration: 0.3s;
 
-	     -o-transition-duration: .3s;
+	-o-transition-duration: 0.3s;
 
-	        transition-duration: .3s;
+	transition-duration: 0.3s;
 }
 @media (width <= 1280px) {
 	.std-link::before {
@@ -141,18 +139,17 @@ html {
 	}
 }
 
-
 /* Бургер кнопка */
 .std-burger-container {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
 	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
 
 	width: 28px;
 	aspect-ratio: 1;
@@ -168,7 +165,7 @@ html {
 }
 .std-burger::before,
 .std-burger::after {
-	content: "";
+	content: '';
 	position: absolute;
 	left: 0;
 }
@@ -179,9 +176,9 @@ html {
 	width: 24px;
 	height: 3px;
 	border-radius: 10px;
-	-webkit-transition-duration: .4s;
-	     -o-transition-duration: .4s;
-	        transition-duration: .4s;
+	-webkit-transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+	transition-duration: 0.4s;
 }
 .std-burger--active {
 	rotate: -225deg;
@@ -194,11 +191,10 @@ html {
 	rotate: 90deg;
 }
 
-
 /* Анимашка для всплывашки */
 .std-toast {
 	-webkit-animation: std-toast-opened 2s linear;
-	        animation: std-toast-opened 2s linear;
+	animation: std-toast-opened 2s linear;
 	translate: -100% 0;
 	opacity: 0;
 }
@@ -233,13 +229,12 @@ html {
 	}
 }
 
-
 /* Анимашка для менюшки */
 .std-menu {
 	overflow: hidden;
-	-webkit-transition: all .4s ease-out;
-	-o-transition: all .4s ease-out;
-	transition: all .4s ease-out;
+	-webkit-transition: all 0.4s ease-out;
+	-o-transition: all 0.4s ease-out;
+	transition: all 0.4s ease-out;
 	max-height: 0;
 }
 .std-menu--active {
