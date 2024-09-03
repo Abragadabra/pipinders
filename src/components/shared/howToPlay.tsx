@@ -44,7 +44,7 @@ export const HowToPlay: React.FC<Props> = ({ className }) => {
 					<li className='mb-5 text-left leading-10'>
 						Запустите{' '}
 						<span className='highlighting'>
-							LegacyLauncher.exe
+							Launcher.exe
 						</span>{' '}
 						и установите куда вам удобно.
 					</li>
